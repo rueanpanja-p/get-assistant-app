@@ -1,0 +1,6 @@
+{
+  "name": "get-assistant",
+  "short_name": "get-assistant",
+  "start_url": "/",
+  "display": "standalone"
+}
