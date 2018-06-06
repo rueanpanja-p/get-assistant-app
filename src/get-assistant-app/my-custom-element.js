@@ -15,7 +15,7 @@ class MyCustomElement extends PolymerElement {
           }
         </style>
 
-        <div class="owl-carousel owl-theme">
+        <div class="owl-carousel">
             <div class="item"><h4>1</h4></div>
             <div class="item"><h4>2</h4></div>
             <div class="item"><h4>3</h4></div>
@@ -36,6 +36,8 @@ class MyCustomElement extends PolymerElement {
 
     };
   }
+
+
 }
 
 window.customElements.define('my-custom-element',MyCustomElement);

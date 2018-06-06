@@ -3,48 +3,96 @@ import 'jquery/dist/jquery.min.js';
 import '@polymer/paper-card/paper-card.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import '@polymer/iron-icon/iron-icon.js';
-
+import '@polymer/app-layout/app-grid/app-grid-style.js';
 
 class MyCards extends PolymerElement{
   static get template() {
     return html`
-      <style>
+      <style include="app-grid-style">
         :host {
           display: block;
-          padding: 10px;
+          padding: 5px 10px;
+          --app-grid-columns: 3;
         }
+        ul {
+          padding: 0;
+          list-style: none;
+        }
+        li{
+          padding: 5px 10px;
+        }
+        .more { color: var(--google-blue-500); }
+        .news-header { @apply --paper-font-headline; font-size:1.5em; }
+        .news-light { color: var(--paper-grey-600); }
+
+        @media(max-width:768px){
+          :host{
+            --app-grid-columns: 2;
+          }
+        }
+
+        @media(max-width:320px){
+          :host{
+            --app-grid-columns: 1;
+          }
+        }
+
       </style>
 
-      <div>
-        <paper-card image="./node_modules/@polymer/paper-card/demo/donuts.png">
-          <div class="card-content">
-            <div class="cafe-header">Cafe Basilico
-              <div class="cafe-location cafe-light">
-                <iron-icon icon="communication:location-on"></iron-icon>
-                <span>250ft</span>
+
+      <ul class="app-grid">
+        <li class="item">
+          <div>
+            <paper-card image="images/pic1.jpg">
+              <div class="card-content">
+                <div class="news-header">Cafe Basilico
+
+                </div>
+                <p class="news-light">Small plates, salads &amp; sandwiches in an intimate setting.</p>
               </div>
-            </div>
-            <div class="cafe-rating">
-              <iron-icon class="star" icon="star"></iron-icon>
-              <iron-icon class="star" icon="star"></iron-icon>
-              <iron-icon class="star" icon="star"></iron-icon>
-              <iron-icon class="star" icon="star"></iron-icon>
-              <iron-icon class="star" icon="star"></iron-icon>
-            </div>
-            <p>$・Italian, Cafe</p>
-            <p class="cafe-light">Small plates, salads &amp; sandwiches in an intimate setting.</p>
+              <div class="card-actions">
+                <div class="horizontal justified">
+                  <paper-button class="more">Learn More</paper-button>
+                </div>
+              </div>
+            </paper-card>
           </div>
-          <div class="card-actions">
-            <div class="horizontal justified">
-              <paper-icon-button icon="icons:event"></paper-icon-button>
-              <paper-button>5:30PM</paper-button>
-              <paper-button>7:30PM</paper-button>
-              <paper-button>9:00PM</paper-button>
-              <paper-button class="cafe-reserve">Reserve</paper-button>
-            </div>
+        </li>
+        <li class="item">
+          <div>
+            <paper-card image="images/pic1.jpg">
+              <div class="card-content">
+                <div class="news-header">Cafe Basilico
+
+                </div>
+                <p class="news-light">Small plates, salads &amp; sandwiches in an intimate setting.</p>
+              </div>
+              <div class="card-actions">
+                <div class="horizontal justified">
+                  <paper-button class="more">Learn More</paper-button>
+                </div>
+              </div>
+            </paper-card>
           </div>
-        </paper-card>
-      </div>
+        </li>
+        <li class="item">
+          <div>
+            <paper-card image="images/pic1.jpg">
+              <div class="card-content">
+                <div class="news-header">Cafe Basilico
+
+                </div>
+                <p class="news-light">Small plates, salads &amp; sandwiches in an intimate setting.</p>
+              </div>
+              <div class="card-actions">
+                <div class="horizontal justified">
+                  <paper-button class="more">Learn More</paper-button>
+                </div>
+              </div>
+            </paper-card>
+          </div>
+        </li>
+      </ul>
 
     `;
   }

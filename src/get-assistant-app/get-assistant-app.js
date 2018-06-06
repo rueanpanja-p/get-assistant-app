@@ -10,9 +10,12 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
 import '@polymer/paper-card/paper-card.js';
 import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
+import '@polymer/iron-image/iron-image.js';
+import '@polymer/paper-item/paper-item.js';
 import './my-icons.js';
 import './my-custom-element.js';
 import './my-cards.js';
+import './my-catalog.js';
 
 
 /**
@@ -67,15 +70,36 @@ class GetAssistantApp extends PolymerElement {
         }
 
         .tabs {
-        height: 100%;
-        @apply --layout-horizontal;
-      }
-      .tabs > a {
-        @apply --layout-vertical;
-        @apply --layout-center-center;
-        margin: 12px 16px 12px;
-        text-decoration: none;
-      }
+          height: 100%;
+          @apply --layout-horizontal;
+        }
+        .style-news-content{
+          display: block;
+          position: relative;
+          max-width: 1200px;
+          margin: 0px auto;
+        }
+        .pic-flex{
+          @apply --layout-vertical;
+          @apply --layout-center-center;
+          display: flex;
+          background-image: url('images/pic-header.jpg');
+          width: 100%;
+          height: 400px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          color: white;
+          text-align: center;
+        }
+        .pic-flex > h2{
+          font-size: 56px;
+        }
+        .tabs > a {
+          @apply --layout-vertical;
+          @apply --layout-center-center;
+          margin: 12px 16px 12px;
+          text-decoration: none;
+        }
 
         @media(max-width:768px){
           .leftItem{
@@ -90,10 +114,18 @@ class GetAssistantApp extends PolymerElement {
             @apply --layout-flex;
             @apply --layout-center-center;
           }
+          .pic-flex{
+            height: 250px;
+          }
+          .pic-flex > h2{
+            font-size: 32px;
+          }
         }
 
         @media(max-width:320px){
-
+          .pic-flex{
+            height: 200px;
+          }
         }
 
       </style>
@@ -103,8 +135,18 @@ class GetAssistantApp extends PolymerElement {
       <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
           <app-toolbar>Menu</app-toolbar>
           <iron-selector attr-for-selected="name" class="drawer-list" role="navigation">
-            <a name="view1" href="">Search</a>
-            <a name="view2" href="">Add</a>
+            <a name="view1" href="">
+              <paper-icon-item>
+                <iron-icon icon="search" slot="item-icon"></iron-icon>
+                Search
+              </paper-icon-item>
+            </a>
+            <a name="view2" href="">
+              <paper-icon-item>
+                <iron-icon icon="add" slot="item-icon"></iron-icon>
+                Add
+              </paper-icon-item>
+            </a>
           </iron-selector>
       </app-drawer>
 
@@ -114,17 +156,30 @@ class GetAssistantApp extends PolymerElement {
               <paper-icon-button icon="my-icons:menu" drawer-toggle="" class="leftItem"></paper-icon-button>
               <div main-title="" class="spacer">GetAssistantApp</div>
               <div class="tabs">
-                <a href="#"><paper-icon-button icon="search" class="icon-search"></paper-icon-button></a>
-                <a href="#"><paper-icon-button icon="add" class="icon-add"></paper-icon-button></a>
+                <a name="view1" href="" style="color:white;">
+                  <paper-icon-item>
+                    <iron-icon icon="search" slot="item-icon"></iron-icon>
+                    Search
+                  </paper-icon-item>
+                </a>
+                <a name="view2" href="" style="color:white;">
+                  <paper-icon-item>
+                    <iron-icon icon="add" slot="item-icon"></iron-icon>
+                    Add
+                  </paper-icon-item>
+                </a>
               </div>
             </app-toolbar>
           </app-header>
         </app-header-layout>
-        <div>
-          <my-custom-element></my-custom-element>
+        <div class="pic-flex">
+          <h2>Get Assistant</h2>
+        </div>
+        <div class="style-news-content">
+          <my-cards></my-cards>
         </div>
         <div>
-          <my-cards></my-cards>
+          <my-catalog></my-catalog>
         </div>
       </app-drawer-layout>
 
