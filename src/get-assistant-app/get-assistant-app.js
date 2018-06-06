@@ -30,6 +30,7 @@ class GetAssistantApp extends PolymerElement {
           --app-primary-color: #4285f4;
           --app-secondary-color: black;
           --app-drawer-width: 250px;
+          --app-drawer-scrim-background: rgba(0,0,0,0.7);
           display: block;
         }
 
@@ -99,6 +100,13 @@ class GetAssistantApp extends PolymerElement {
           @apply --layout-center-center;
           margin: 12px 16px 12px;
           text-decoration: none;
+        }
+        footer{
+          height: 50px;
+          color:white;
+          background-color: #4285f4;
+          @apply --layout-vertical;
+          @apply --layout-center-center;
         }
 
         @media(max-width:768px){
@@ -182,7 +190,6 @@ class GetAssistantApp extends PolymerElement {
           <my-catalog></my-catalog>
         </div>
       </app-drawer-layout>
-
     `;
   }
   static get properties() {
